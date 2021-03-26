@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Les six premiers pokémons</h2>
+  <hr />
+  <div class="colums">
+    <p>{{count}} dans la base de données :</p>
+    <!-- <p *ngIf=pokemonSelected> Le pokemon selectionné est : {{pokemonSelected}}</p> -->
+  </div>
+</div>
+<div class="colums is-multiline">
+  <ul class="menu-list column is-one-third" *ngFor="let pokemonTab of pokemons">
+    <li>
+      <app-pokemon [pokemon]= pokemonTab 
+      (evenemitClicImage)="pokemonSelected=$event"
+      ></app-pokemon>
+    </li>
+  </ul>
+</div>
