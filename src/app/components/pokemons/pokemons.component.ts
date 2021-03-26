@@ -14,6 +14,7 @@ export class PokemonsComponent implements OnInit {
   faOptinMonster=faOptinMonster;
   formSearchPokemon = new FormSearchPokemon('')
   @Output() evenemitClicImage = new EventEmitter();
+  easterEggs = false;
  
 
   clicSurImage(nom){
@@ -29,6 +30,10 @@ export class PokemonsComponent implements OnInit {
 
   search(nomPokemon){
     this.pokemons = this.pokemonService.searchPokemon(nomPokemon);
+    this.easterEggs = false;
+    if(nomPokemon == "ah"){
+      this.easterEggs = true;
+    }
   }
   cancelSearch() {
     this.pokemons = this.pokemonService.getPokemons();

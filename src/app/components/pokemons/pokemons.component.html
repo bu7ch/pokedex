@@ -4,24 +4,30 @@
   <p>{{ count }} dans la base de données :</p>
   <div class="colums">
     <div class="column is-two-third">
-      <form>
+      <form #form="ngForm">
         <div class="field has-addons">
           <div class="control has-icons-left">
             <input
-              type="text"
+              type="test"
               name="pokemonSearch"
               placeholder="Nom du Pokémon"
               [(ngModel)]="formSearchPokemon.nom"
+              (keyup)="search(formSearchPokemon.nom)" pattern="[a-zA-Z]*" [class.is-danger]="form.invalid"
               class="input is-small"
             />
             <span class="icon is-small is-left">
-              <fa-icon [icon]="faOptinMonster"></fa-icon>
+              <fa-icon [icon]="faOptinMonster"></fa-icon> 
             </span>
+            <div *ngIf="form.invalid" class="tag is-danger is-light"> Le champ de saisie ne doit contenir que des lettres</div>
+            <div *ngIf="easterEggs">
+              <img src="https://media.giphy.com/media/L32GP5Oxzld5KyxKK8/giphy.gif" alt="">
+            </div>
           </div>
           <div class="control">
             <a
               class="button is-primary is-small"
               (click)="search(formSearchPokemon.nom)"
+              [class.is-danger]="form.invalid"
             >
               Rechercher</a
             >
