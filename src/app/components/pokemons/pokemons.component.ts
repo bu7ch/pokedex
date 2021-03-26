@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { PokemonsService } from 'src/app/services/pokemons.service';
-
+import { faOptinMonster } from '@fortawesome/free-brands-svg-icons'
+import { FormSearchPokemon } from 'src/app/models/form-search-pokemon';
 @Component({
   selector: 'app-pokemons',
   templateUrl: './pokemons.component.html',
@@ -10,6 +11,8 @@ export class PokemonsComponent implements OnInit {
 
   pokemons = [];
   count = 0;
+  faOptinMonster=faOptinMonster;
+  formSearchPokemon = new FormSearchPokemon('')
   @Output() evenemitClicImage = new EventEmitter();
  
 
@@ -22,5 +25,13 @@ export class PokemonsComponent implements OnInit {
   ngOnInit(): void {
     this.pokemons = this.pokemonService.getPokemons();
     this.count = this.pokemonService.countPokemons();
+  }
+
+  search(nomPokemon){
+    this.pokemons = this.pokemonService.searchPokemon(nomPokemon);
+  }
+  cancelSearch() {
+    this.pokemons = this.pokemonService.getPokemons();
+    this.formSearchPokemon.setNom('')
   }
 }

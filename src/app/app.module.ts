@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { GenerationsComponent } from './components/generations/generations.component';
 import { PokemonsComponent } from './components/pokemons/pokemons.component';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 registerLocaleData(localeFR);
 
@@ -22,7 +24,9 @@ registerLocaleData(localeFR);
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr'}],
   bootstrap: [AppComponent]

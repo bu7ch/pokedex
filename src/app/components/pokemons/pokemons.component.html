@@ -1,17 +1,53 @@
 <div class="container">
   <h2>Les six premiers pokémons</h2>
   <hr />
+  <p>{{ count }} dans la base de données :</p>
   <div class="colums">
-    <p>{{count}} dans la base de données :</p>
+    <div class="column is-two-third">
+      <form>
+        <div class="field has-addons">
+          <div class="control has-icons-left">
+            <input
+              type="text"
+              name="pokemonSearch"
+              placeholder="Nom du Pokémon"
+              [(ngModel)]="formSearchPokemon.nom"
+              class="input is-small"
+            />
+            <span class="icon is-small is-left">
+              <fa-icon [icon]="faOptinMonster"></fa-icon>
+            </span>
+          </div>
+          <div class="control">
+            <a
+              class="button is-primary is-small"
+              (click)="search(formSearchPokemon.nom)"
+            >
+              Rechercher</a
+            >
+          </div>
+          <div class="control">
+            <a class="button is-light is-small" (click)="cancelSearch()"
+              >Annuler</a
+            >
+          </div>
+        </div>
+      </form>
+    </div>
     <!-- <p *ngIf=pokemonSelected> Le pokemon selectionné est : {{pokemonSelected}}</p> -->
   </div>
-</div>
-<div class="colums is-multiline">
-  <ul class="menu-list column is-one-third" *ngFor="let pokemonTab of pokemons">
-    <li>
-      <app-pokemon [pokemon]= pokemonTab 
-      (evenemitClicImage)="pokemonSelected=$event"
-      ></app-pokemon>
-    </li>
-  </ul>
+  <div *ngIf="!pokemons.length">Aucun Pokemon trouvé</div>
+  <div class="colums is-multiline">
+    <ul
+      class="menu-list column is-one-third"
+      *ngFor="let pokemonTab of pokemons"
+    >
+      <li>
+        <app-pokemon
+          [pokemon]="pokemonTab"
+          (evenemitClicImage)="pokemonSelected = $event"
+        ></app-pokemon>
+      </li>
+    </ul>
+  </div>
 </div>
