@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { GenerationAPI } from '../models/generation-api';
 
 @Injectable({
   providedIn: 'root'
@@ -62,7 +64,7 @@ export class PokemonsService {
     },
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getPokemons(){
     return this.pokemons
@@ -75,4 +77,10 @@ export class PokemonsService {
     let regex = new RegExp(nomPokemon, 'gi');
     return this.pokemons.filter(pokemon => pokemon.nom.match(regex))
   }
+
+  getGenerations(){
+    let url = "https://pokeapi.co/api/v2/generation/";
+    return this.http.get<GenerationAPI>(url)
+  }
+
 }

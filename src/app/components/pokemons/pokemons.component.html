@@ -49,10 +49,7 @@
       *ngFor="let pokemonTab of pokemons"
     >
       <li>
-        <app-pokemon
-          [pokemon]="pokemonTab"
-          (evenemitClicImage)="pokemonSelected = $event"
-        ></app-pokemon>
+        <app-pokemon [pokemon]="pokemonTab"></app-pokemon>
       </li>
     </ul>
   </div>
