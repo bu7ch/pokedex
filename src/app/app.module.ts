@@ -12,6 +12,7 @@ import { PokemonsComponent } from './components/pokemons/pokemons.component';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 
 registerLocaleData(localeFR);
 
@@ -20,7 +21,8 @@ registerLocaleData(localeFR);
     AppComponent,
     GenerationsComponent,
     PokemonsComponent,
-    PokemonComponent
+    PokemonComponent,
+    HeaderNavComponent
   ],
   imports: [
     BrowserModule,

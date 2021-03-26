@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent implements OnInit {
-@Input() pokemon= {}
+@Input() pokemon = {}
   constructor() { }
 
   ngOnInit(): void {

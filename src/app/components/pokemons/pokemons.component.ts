@@ -26,6 +26,7 @@ export class PokemonsComponent implements OnInit {
   ngOnInit(): void {
     this.pokemons = this.pokemonService.getPokemons();
     this.count = this.pokemonService.countPokemons();
+    console.log(this.pokemons)
   }
 
   search(nomPokemon){
